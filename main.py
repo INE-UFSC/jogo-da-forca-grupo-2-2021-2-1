@@ -8,7 +8,7 @@ Coisas a implementar:
 """
 import database
 import random
-
+import logica
 
 def ChooseRandomWord():
     quantWords = len(database.arrayPalavras)
@@ -30,7 +30,8 @@ while True:  # Loop para iniciar o jogo
         break
 
     # Busca uma palavra aleatória
-    print(ChooseRandomWord())
+    word=ChooseRandomWord()
+    logica.forca(word)
 
     # "Criptografar" e mostrar a palavra para o usuário
     # Manter um array com as letras já escolhidas para o usuário e ir mostrando gradativamente ao usuário
