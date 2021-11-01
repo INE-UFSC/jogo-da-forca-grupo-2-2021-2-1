@@ -10,7 +10,7 @@ import database
 import random
 import game
 
-def _ChooseRandomWord():
+def _choose_random_word():
     num_words = len(database.words)
     index_random_word = random.randint(0, num_words-1)
     return database.words[index_random_word]
@@ -28,8 +28,8 @@ while True:  # Loop para iniciar o jogo
         break
 
     # Busca uma palavra aleatória
-    word=_ChooseRandomWord()
-    game.Play(word)
+    word = _choose_random_word()
+    game.play(word.upper())
 
     # "Criptografar" e mostrar a palavra para o usuário
     # Manter um array com as letras já escolhidas para o usuário e ir mostrando gradativamente ao usuário

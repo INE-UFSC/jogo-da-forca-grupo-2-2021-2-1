@@ -1,6 +1,7 @@
-def Play(word):
+def play(word):
     # Function that has the logic of the game
-    # Checks if the letter typed matches the word, and gives feedback to the player according to the result
+    # Checks if the letter typed matches the word
+    # And gives feedback to the player according to the result
 
     num_lifes = 5
     used_letters = []
