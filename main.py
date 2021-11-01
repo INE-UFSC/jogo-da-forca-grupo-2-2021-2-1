@@ -15,11 +15,9 @@ def _ChooseRandomWord():
     index_random_word = random.randint(0, num_words-1)
     return database.words[index_random_word]
 
-
 while True:  # Loop para iniciar o jogo
     while True:  # Loop para pegar a resposta do usuário
-        start = input(
-            'Você deseja iniciar um jogo de forca? [S/N]').upper().strip()
+        start = input('Você deseja iniciar um jogo de forca? [S/N]').upper().strip()
 
         if start == 'N' or start == 'S':
             break
