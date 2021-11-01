@@ -1,2 +1,2 @@
-arrayPalavras = ['museu', 'casa', 'aviao', 'computador',
+words = ['museu', 'casa', 'aviao', 'computador',
                  'Alan Turing', 'notebook', 'impressora']

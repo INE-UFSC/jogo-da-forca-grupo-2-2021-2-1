@@ -8,30 +8,30 @@ Coisas a implementar:
 """
 import database
 import random
-import logica
+import game
 
-def ChooseRandomWord():
-    quantWords = len(database.arrayPalavras)
-    index = random.randint(0, quantWords-1)
-    return database.arrayPalavras[index]
+def _ChooseRandomWord():
+    num_words = len(database.words)
+    index_random_word = random.randint(0, num_words-1)
+    return database.words[index_random_word]
 
 
 while True:  # Loop para iniciar o jogo
     while True:  # Loop para pegar a resposta do usuário
-        resp = input(
+        start = input(
             'Você deseja iniciar um jogo de forca? [S/N]').upper().strip()
 
-        if resp == 'N' or resp == 'S':
+        if start == 'N' or start == 'S':
             break
         print('Coloque "S" para comecar o jogo ou "N" para sair do jogo')
 
-    if resp == 'N':  # Finaliza o jogo caso o usuário não queira jogar
+    if start == 'N':  # Finaliza o jogo caso o usuário não queira jogar
         print('Fechando o jogo...')
         break
 
     # Busca uma palavra aleatória
-    word=ChooseRandomWord()
-    logica.forca(word)
+    word=_ChooseRandomWord()
+    game.Play(word)
 
     # "Criptografar" e mostrar a palavra para o usuário
     # Manter um array com as letras já escolhidas para o usuário e ir mostrando gradativamente ao usuário
