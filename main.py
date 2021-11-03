@@ -8,7 +8,7 @@ def _choose_random_word():
     return database.words[index_random_word]
 
 while True:
-    start = input('Você deseja iniciar um jogo de forca? [S/N]').upper().strip()
+    start = input('\nVocê deseja iniciar um jogo de forca? [S/N] ').upper().strip()
 
     if start == 'S':
         word = _choose_random_word()
@@ -17,3 +17,6 @@ while True:
     elif start == 'N':
         print('Fechando o jogo...')
         exit()
+
+    else:
+        print('Essa opcao nao existe!')

@@ -1,3 +1,36 @@
+def _verify_endgame(word, check_word_in_used_letters, num_lifes):
+    if check_word_in_used_letters == len(word):
+        print('> Parabéns você venceu')
+        return True
+    if num_lifes==0:
+        print('> Acabaram suas chances')
+        return True
+    else:
+        return False
+
+def _print_word_status(word, num_lifes, used_letters):
+    print('# Palavra secreta: ', end='')
+    for i in word:
+        if i in used_letters:
+            print(i, end='')
+        else:
+            print(' _', end='')
+    print('')
+
+    print(f'# Você tem {num_lifes} chances')
+    print('# Letras ja digitadas: ', end='')
+    for i in used_letters:
+        print(i, end=', ')
+    print('\n')
+
+def _get_letter(used_letters):
+    while True:
+        last_letter = input('Digite uma letra: ').upper()
+        if last_letter in used_letters:
+            print('> A letra já foi selecionada\n')
+        else:
+            return last_letter
+
 def play(word):
     # Function that has the logic of the game
     # Checks if the letter typed matches the word
@@ -14,37 +47,14 @@ def play(word):
     print('           l               ')
     print('                           ')
 
-    print('Palavra secreta:', end='')
-    for i in word:
-        print(' _', end='')
-    print('')
-
     while True:
-        num_correct_letters = 0
+        flag_correct_letter_attempt = False
         check_word_in_used_letters = 0
 
-        print(f'Você tem {num_lifes} chances')
-        print('Letras selecionadas:  ', end='')
+        _print_word_status(word, num_lifes, used_letters)
 
-        for i in used_letters:
-            print(i, end='')
-        print('')
-
-        while True:
-            last_letter = input('Digite uma letra: ').upper()
-            if last_letter in used_letters:
-                print('A letra já foi selecionada')
-            else:
-                used_letters.append(last_letter) 
-                break
-
-        for i in word:  
-            if i == last_letter:
-                num_correct_letters += 1
-
-        if num_correct_letters == 0:
-            num_lifes -= 1
-            print('Você errou a letra')
+        last_letter = _get_letter(used_letters)
+        used_letters.append(last_letter) 
             
         if num_lifes==6:
             print('            ____       ')
@@ -110,19 +120,15 @@ def play(word):
             print('                           ')
             
         for i in word:
-            if i in used_letters:
-                print(i, end=' ')
-            else:
-                print('_', end=' ')
-        print('')
-
-        for i in word:
+            if i == last_letter:
+                flag_correct_letter_attempt = True
             if i in used_letters:
                 check_word_in_used_letters += 1
 
-        if check_word_in_used_letters == len(word):
-            print('Parabéns você venceu')
-            break   
-        if num_lifes==0:
-            print('Acabaram suas chances')
-            break
+        if not flag_correct_letter_attempt:
+            num_lifes -= 1
+            print('> Você errou a letra')
+
+        if _verify_endgame(word, check_word_in_used_letters, num_lifes): break
+
+    _print_word_status(word, num_lifes, used_letters)
