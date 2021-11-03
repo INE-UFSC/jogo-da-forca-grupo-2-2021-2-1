@@ -1,5 +1,6 @@
 def _verify_endgame(word, check_word_in_used_letters, num_lifes):
-    if check_word_in_used_letters == len(word):
+    word_only_aplpha = [c.lower() for c in word if c.isalpha()]
+    if check_word_in_used_letters == len(word_only_aplpha):
         print('> Parabéns você venceu')
         return True
     if num_lifes==0:
@@ -12,7 +13,9 @@ def _print_word_status(word, num_lifes, used_letters):
     print('# Palavra secreta: ', end='')
     for i in word:
         if i in used_letters:
-            print(i, end='')
+            print(f'{i}', end='')
+        elif not i.isalpha():
+            print(f'{i}', end='')
         else:
             print(' _', end='')
     print('')
@@ -25,13 +28,13 @@ def _print_word_status(word, num_lifes, used_letters):
 
 def _get_letter(used_letters):
     while True:
-        last_letter = input('Digite uma letra: ')
+        last_letter = input('Digite uma letra: ').upper()
         if last_letter in used_letters:
             print('> A letra já foi selecionada\n')
         elif not last_letter.isalpha():
             print('> Caracter invalido')
         else:
-            return last_letter.upper()
+            return last_letter
 
 def play(word):
     # Function that has the logic of the game
