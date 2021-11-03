@@ -25,11 +25,13 @@ def _print_word_status(word, num_lifes, used_letters):
 
 def _get_letter(used_letters):
     while True:
-        last_letter = input('Digite uma letra: ').upper()
+        last_letter = input('Digite uma letra: ')
         if last_letter in used_letters:
             print('> A letra já foi selecionada\n')
+        elif not last_letter.isalpha():
+            print('> Caracter invalido')
         else:
-            return last_letter
+            return last_letter.upper()
 
 def play(word):
     # Function that has the logic of the game
@@ -54,7 +56,7 @@ def play(word):
         _print_word_status(word, num_lifes, used_letters)
 
         last_letter = _get_letter(used_letters)
-        used_letters.append(last_letter) 
+        used_letters.append(last_letter)
             
         if num_lifes==6:
             print('            ____       ')
