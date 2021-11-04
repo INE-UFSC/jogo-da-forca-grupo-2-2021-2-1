@@ -1,3 +1,68 @@
+def print_boneco(vidas):
+    if vidas == 6:
+        print('            ____       ')
+        print('           /        l      ')
+        print('           l               ')
+        print('           l               ')
+        print('           l               ')
+        print('           l               ')
+        print('                           ')
+
+    elif vidas == 5:
+        print('            ____      ')
+        print('           /        l     ')
+        print('           l       O     ')
+        print('           l               ')
+        print('           l               ')
+        print('           l               ')
+        print('                           ')
+
+    elif vidas == 4:
+        print('            ____      ')
+        print('           /        l     ')
+        print('           l       O     ')
+        print('           l        l     ')
+        print('           l        l      ')
+        print('           l               ')
+        print('                           ')
+
+    elif vidas == 3:
+        print('            ____      ')
+        print('           /        l     ')
+        print('           l       O     ')
+        print('           l      / l     ')
+        print('           l        l      ')
+        print('           l               ')
+        print('                           ')
+
+    elif vidas == 2:
+        print('            ____      ')
+        print('           /        l     ')
+        print('           l       O     ')
+        print('           l      / l \    ')
+        print('           l        l      ')
+        print('           l               ')
+        print('                           ')
+
+    elif vidas == 1:
+        print('            ____      ')
+        print('           /        l     ')
+        print('           l       O     ')
+        print('           l      / l \    ')
+        print('           l        l      ')
+        print('           l       /       ')
+        print('                           ')
+
+    else:
+        print('            ____      ')
+        print('           /        l     ')
+        print('           l       O     ')
+        print('           l      / l \    ')
+        print('           l        l      ')
+        print('           l       / \     ')
+        print('                           ')
+
+
 def play(word):
     # Function that has the logic of the game
     # Checks if the letter typed matches the word
@@ -6,13 +71,7 @@ def play(word):
     num_lifes = 6
     used_letters = []
 
-    print('            ____       ')
-    print('           /        l      ')
-    print('           l               ')
-    print('           l               ')
-    print('           l               ')
-    print('           l               ')
-    print('                           ')
+    print_boneco(num_lifes)
 
     print('Palavra secreta:', end='')
     for i in word:
@@ -34,7 +93,7 @@ def play(word):
         print('')
 
         while True:
-            last_letter = input('Digite uma letra: ').upper()
+            last_letter = input('Digite uma letra: ').upper()[0]
             if last_letter in used_letters:
                 print('A letra já foi selecionada')
             else:
@@ -49,68 +108,7 @@ def play(word):
             num_lifes -= 1
             print('Você errou a letra')
 
-        if num_lifes == 6:
-            print('            ____       ')
-            print('           /        l      ')
-            print('           l               ')
-            print('           l               ')
-            print('           l               ')
-            print('           l               ')
-            print('                           ')
-
-        elif num_lifes == 5:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l               ')
-            print('           l               ')
-            print('           l               ')
-            print('                           ')
-
-        elif num_lifes == 4:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l        l     ')
-            print('           l        l      ')
-            print('           l               ')
-            print('                           ')
-
-        elif num_lifes == 3:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l      / l     ')
-            print('           l        l      ')
-            print('           l               ')
-            print('                           ')
-
-        elif num_lifes == 2:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l      / l \    ')
-            print('           l        l      ')
-            print('           l               ')
-            print('                           ')
-
-        elif num_lifes == 1:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l      / l \    ')
-            print('           l        l      ')
-            print('           l       /       ')
-            print('                           ')
-
-        else:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l      / l \    ')
-            print('           l        l      ')
-            print('           l       / \     ')
-            print('                           ')
+        print_boneco(num_lifes)
 
         for i in word:
             if i in used_letters:
