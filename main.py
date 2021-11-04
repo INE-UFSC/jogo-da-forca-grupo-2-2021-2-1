@@ -1,3 +1,4 @@
+import os
 import database
 import random
 import game
@@ -8,6 +9,7 @@ def _choose_random_word():
     return database.words[index_random_word]
 
 while True:
+    os.system('clear')
     start = input('\nVocê deseja iniciar um jogo de forca? [S/N] ').upper().strip()
 
     if start == 'S':

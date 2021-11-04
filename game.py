@@ -1,3 +1,5 @@
+import os
+
 def _verify_endgame(word, check_word_in_used_letters, num_lifes):
     word_only_aplpha = [c.lower() for c in word if c.isalpha()]
     if check_word_in_used_letters == len(word_only_aplpha):
@@ -97,8 +99,9 @@ def _get_letter(used_letters):
         if last_letter in used_letters:
             print('> A letra já foi selecionada\n')
         elif not last_letter.isalpha():
-            print('> Caracter invalido')
+            print('> Caracter invalido\n')
         else:
+            os.system('clear')
             return last_letter
 
 def play(word):
