@@ -13,7 +13,7 @@ A tarefa consiste na construção de um jogo da forca. O grupo é livre para def
 ## Uso
 
 ```python
-WIP
+python main.py
 ```
 
 ## Contribuições
