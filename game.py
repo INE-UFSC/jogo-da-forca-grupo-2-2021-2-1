@@ -1,19 +1,21 @@
 import os
 
+
 def _verify_endgame(word, check_word_in_used_letters, num_lifes):
-    word_only_aplpha = [c.lower() for c in word if c.isalpha()]
-    if check_word_in_used_letters == len(word_only_aplpha):
+    word_only_alpha = [c.lower() for c in word if c.isalpha()]
+
+    if check_word_in_used_letters == len(word_only_alpha):
         print('> Parabéns você venceu')
         return True
-    if num_lifes==0:
+    if num_lifes == 0:
         print('> Acabaram suas chances')
         return True
     else:
         return False
-
+      
 def _print_word_status(word, num_lifes, used_letters):
-    
-    if num_lifes==6:
+
+    if num_lifes == 6:
         print('            ______         ')
         print('           /      |        ')
         print('           |               ')
@@ -21,8 +23,8 @@ def _print_word_status(word, num_lifes, used_letters):
         print('           |               ')
         print('           |               ')
         print('                           ')
-       
-    elif num_lifes==5:
+
+    elif num_lifes == 5:
         print('            ______         ')
         print('           /      |        ')
         print('           |      O        ')
@@ -30,8 +32,8 @@ def _print_word_status(word, num_lifes, used_letters):
         print('           |               ')
         print('           |               ')
         print('                           ')
-        
-    elif num_lifes==4:
+
+    elif num_lifes == 4:
         print('            ______         ')
         print('           /      |        ')
         print('           |      O        ')
@@ -39,8 +41,8 @@ def _print_word_status(word, num_lifes, used_letters):
         print('           |      I        ')
         print('           |               ')
         print('                           ')
-        
-    elif num_lifes==3:
+
+    elif num_lifes == 3:
         print('            ______         ')
         print('           /      |        ')
         print('           |      O        ')
@@ -48,8 +50,8 @@ def _print_word_status(word, num_lifes, used_letters):
         print('           |      I        ')
         print('           |               ')
         print('                           ')
-        
-    elif num_lifes==2:
+
+    elif num_lifes == 2:
         print('            ______         ')
         print('           /      |        ')
         print('           |      O        ')
@@ -57,8 +59,8 @@ def _print_word_status(word, num_lifes, used_letters):
         print('           |      I        ')
         print('           |               ')
         print('                           ')
-       
-    elif num_lifes==1:
+
+    elif num_lifes == 1:
         print('            ______         ')
         print('           /      |        ')
         print('           |      O        ')
@@ -66,8 +68,8 @@ def _print_word_status(word, num_lifes, used_letters):
         print('           |      I        ')
         print('           |    /          ')
         print('                           ')
-        
-    elif num_lifes==0:
+
+    elif num_lifes == 0:
         print('            ______         ')
         print('           /      |        ')
         print('           |      O        ')
@@ -75,7 +77,7 @@ def _print_word_status(word, num_lifes, used_letters):
         print('           |      I        ')
         print('           |    /   \      ')
         print('                           ')
-    
+
     print('# Palavra secreta: ', end='')
     for i in word:
         if i in used_letters:
@@ -95,14 +97,15 @@ def _print_word_status(word, num_lifes, used_letters):
 
 def _get_letter(used_letters):
     while True:
-        last_letter = input('Digite uma letra: ').upper()
+        last_letter = input('Digite uma letra: ').upper()[0]
         if last_letter in used_letters:
             print('> A letra já foi selecionada\n')
         elif not last_letter.isalpha():
             print('> Caracter invalido\n')
         else:
-            os.system('clear')
+            os.system('cls' if os.name == 'nt' else 'clear')
             return last_letter
+
 
 def play(word):
     # Function that has the logic of the game
@@ -111,7 +114,6 @@ def play(word):
 
     num_lifes = 6
     used_letters = []
-    
     _print_word_status(word, num_lifes, used_letters)
 
     while True:
