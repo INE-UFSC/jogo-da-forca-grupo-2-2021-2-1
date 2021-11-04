@@ -8,12 +8,12 @@
 
 ## Descrição da tarefa
 
-A tarefa consiste na construção de um jogo da forca. O grupo é livre para definir as funcionalidades e o funcionamento do jogo, respeitando suas regras básicas. Não é necessário que sejam utilizados conceitos e mecanismos de orientação a objetos neste momento.
+A tarefa consiste na construção de um jogo da forca. O grupo é livre para definir as funcionalidades e o funcionamento do jogo, respeitando suas regras básicas.
 
 ## Uso
 
 ```python
-WIP
+python main.py
 ```
 
 ## Contribuições
@@ -34,6 +34,6 @@ Pull requests são bem-vindos. Para grandes mudanças, por favor, abra um issue 
 - Dr. Jônata Tyska ([@jtyska](https://github.com/jtyska))
 - Dr. Mateus Grellert ([@grellert](https://github.com/grellert))
 
-## License
+## Licença
 
 [MIT](https://choosealicense.com/licenses/mit/)

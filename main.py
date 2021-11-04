@@ -15,6 +15,7 @@ while True:
     start = input(
         '\nVocê deseja iniciar um jogo de forca? [S/N] ').upper().strip()
 
+
     if start == 'S':
         word = _choose_random_word()
         game.play(word.upper())

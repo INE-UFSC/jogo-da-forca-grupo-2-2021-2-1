@@ -12,8 +12,7 @@ def _verify_endgame(word, check_word_in_used_letters, num_lifes):
         return True
     else:
         return False
-
-
+      
 def _print_word_status(word, num_lifes, used_letters):
 
     if num_lifes == 6:
@@ -115,7 +114,6 @@ def play(word):
 
     num_lifes = 6
     used_letters = []
-
     _print_word_status(word, num_lifes, used_letters)
 
     while True:
@@ -135,8 +133,7 @@ def play(word):
             num_lifes -= 1
             print('> Você errou a letra')
 
-        if _verify_endgame(word, check_word_in_used_letters, num_lifes):
-            break
+        if _verify_endgame(word, check_word_in_used_letters, num_lifes): break
 
         _print_word_status(word, num_lifes, used_letters)
 
