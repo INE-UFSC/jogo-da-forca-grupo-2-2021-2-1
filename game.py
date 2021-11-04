@@ -9,6 +9,70 @@ def _verify_endgame(word, check_word_in_used_letters, num_lifes):
         return False
 
 def _print_word_status(word, num_lifes, used_letters):
+    
+    if num_lifes==6:
+        print('            ______         ')
+        print('           /      |        ')
+        print('           |               ')
+        print('           |               ')
+        print('           |               ')
+        print('           |               ')
+        print('                           ')
+       
+    elif num_lifes==5:
+        print('            ______         ')
+        print('           /      |        ')
+        print('           |      O        ')
+        print('           |               ')
+        print('           |               ')
+        print('           |               ')
+        print('                           ')
+        
+    elif num_lifes==4:
+        print('            ______         ')
+        print('           /      |        ')
+        print('           |      O        ')
+        print('           |      I        ')
+        print('           |      I        ')
+        print('           |               ')
+        print('                           ')
+        
+    elif num_lifes==3:
+        print('            ______         ')
+        print('           /      |        ')
+        print('           |      O        ')
+        print('           |    / I        ')
+        print('           |      I        ')
+        print('           |               ')
+        print('                           ')
+        
+    elif num_lifes==2:
+        print('            ______         ')
+        print('           /      |        ')
+        print('           |      O        ')
+        print('           |    / I \      ')
+        print('           |      I        ')
+        print('           |               ')
+        print('                           ')
+       
+    elif num_lifes==1:
+        print('            ______         ')
+        print('           /      |        ')
+        print('           |      O        ')
+        print('           |    / I \      ')
+        print('           |      I        ')
+        print('           |    /          ')
+        print('                           ')
+        
+    elif num_lifes==0:
+        print('            ______         ')
+        print('           /      |        ')
+        print('           |      O        ')
+        print('           |    / I \      ')
+        print('           |      I        ')
+        print('           |    /   \      ')
+        print('                           ')
+    
     print('# Palavra secreta: ', end='')
     for i in word:
         if i in used_letters:
@@ -22,6 +86,7 @@ def _print_word_status(word, num_lifes, used_letters):
     for i in used_letters:
         print(i, end=', ')
     print('\n')
+
 
 def _get_letter(used_letters):
     while True:
@@ -41,86 +106,15 @@ def play(word):
     num_lifes = 6
     used_letters = []
     
-    print('            ____       ')
-    print('           /        l      ')
-    print('           l               ')
-    print('           l               ')
-    print('           l               ')
-    print('           l               ')
-    print('                           ')
+    _print_word_status(word, num_lifes, used_letters)
 
     while True:
         flag_correct_letter_attempt = False
         check_word_in_used_letters = 0
 
-        _print_word_status(word, num_lifes, used_letters)
-
         last_letter = _get_letter(used_letters)
         used_letters.append(last_letter)
-            
-        if num_lifes==6:
-            print('            ____       ')
-            print('           /        l      ')
-            print('           l               ')
-            print('           l               ')
-            print('           l               ')
-            print('           l               ')
-            print('                           ')
-       
-        elif num_lifes==5:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l               ')
-            print('           l               ')
-            print('           l               ')
-            print('                           ')
-        
-        elif num_lifes==4:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l        l     ')
-            print('           l        l      ')
-            print('           l               ')
-            print('                           ')
-        
-        elif num_lifes==3:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l      / l     ')
-            print('           l        l      ')
-            print('           l               ')
-            print('                           ')
-        
-        elif num_lifes==2:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l      / l \    ')
-            print('           l        l      ')
-            print('           l               ')
-            print('                           ')
-       
-        elif num_lifes==1:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l      / l \    ')
-            print('           l        l      ')
-            print('           l       /       ')
-            print('                           ')
-        
-        else:
-            print('            ____      ')
-            print('           /        l     ')
-            print('           l       O     ')
-            print('           l      / l \    ')
-            print('           l        l      ')
-            print('           l       / \     ')
-            print('                           ')
-            
+
         for i in word:
             if i == last_letter:
                 flag_correct_letter_attempt = True
@@ -132,5 +126,7 @@ def play(word):
             print('> Você errou a letra')
 
         if _verify_endgame(word, check_word_in_used_letters, num_lifes): break
+
+        _print_word_status(word, num_lifes, used_letters)
 
     _print_word_status(word, num_lifes, used_letters)
