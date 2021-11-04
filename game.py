@@ -5,7 +5,7 @@ def play(word):
 
     num_lifes = 6
     used_letters = []
-    
+
     print('            ____       ')
     print('           /        l      ')
     print('           l               ')
@@ -16,7 +16,10 @@ def play(word):
 
     print('Palavra secreta:', end='')
     for i in word:
-        print(' _', end='')
+        if i == ' ':
+            print(' ', end='')
+        else:
+            print(' _', end='')
     print('')
 
     while True:
@@ -35,18 +38,18 @@ def play(word):
             if last_letter in used_letters:
                 print('A letra já foi selecionada')
             else:
-                used_letters.append(last_letter) 
+                used_letters.append(last_letter)
                 break
 
-        for i in word:  
+        for i in word:
             if i == last_letter:
                 num_correct_letters += 1
 
         if num_correct_letters == 0:
             num_lifes -= 1
             print('Você errou a letra')
-            
-        if num_lifes==6:
+
+        if num_lifes == 6:
             print('            ____       ')
             print('           /        l      ')
             print('           l               ')
@@ -54,8 +57,8 @@ def play(word):
             print('           l               ')
             print('           l               ')
             print('                           ')
-       
-        elif num_lifes==5:
+
+        elif num_lifes == 5:
             print('            ____      ')
             print('           /        l     ')
             print('           l       O     ')
@@ -63,8 +66,8 @@ def play(word):
             print('           l               ')
             print('           l               ')
             print('                           ')
-        
-        elif num_lifes==4:
+
+        elif num_lifes == 4:
             print('            ____      ')
             print('           /        l     ')
             print('           l       O     ')
@@ -72,8 +75,8 @@ def play(word):
             print('           l        l      ')
             print('           l               ')
             print('                           ')
-        
-        elif num_lifes==3:
+
+        elif num_lifes == 3:
             print('            ____      ')
             print('           /        l     ')
             print('           l       O     ')
@@ -81,8 +84,8 @@ def play(word):
             print('           l        l      ')
             print('           l               ')
             print('                           ')
-        
-        elif num_lifes==2:
+
+        elif num_lifes == 2:
             print('            ____      ')
             print('           /        l     ')
             print('           l       O     ')
@@ -90,8 +93,8 @@ def play(word):
             print('           l        l      ')
             print('           l               ')
             print('                           ')
-       
-        elif num_lifes==1:
+
+        elif num_lifes == 1:
             print('            ____      ')
             print('           /        l     ')
             print('           l       O     ')
@@ -99,7 +102,7 @@ def play(word):
             print('           l        l      ')
             print('           l       /       ')
             print('                           ')
-        
+
         else:
             print('            ____      ')
             print('           /        l     ')
@@ -108,10 +111,12 @@ def play(word):
             print('           l        l      ')
             print('           l       / \     ')
             print('                           ')
-            
+
         for i in word:
             if i in used_letters:
                 print(i, end=' ')
+            elif i == ' ':
+                print(' ', end='')
             else:
                 print('_', end=' ')
         print('')
@@ -122,7 +127,7 @@ def play(word):
 
         if check_word_in_used_letters == len(word):
             print('Parabéns você venceu')
-            break   
-        if num_lifes==0:
+            break
+        if num_lifes == 0:
             print('Acabaram suas chances')
             break
