@@ -1,3 +1,4 @@
+import os
 import database
 import random
 import game
@@ -10,17 +11,17 @@ def _choose_random_word():
 
 
 while True:
-    while True:
-        start = input(
-            'Você deseja iniciar um jogo de forca? [S/N]: ').upper().strip()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    start = input(
+        '\nVocê deseja iniciar um jogo de forca? [S/N] ').upper().strip()
 
-        if start == 'N' or start == 'S':
-            break
-        print('Coloque "S" para comecar o jogo ou "N" para sair do jogo')
+    if start == 'S':
+        word = _choose_random_word()
+        game.play(word.upper())
 
-    if start == 'N':
+    elif start == 'N':
         print('Fechando o jogo...')
-        break
+        exit()
 
-    word = _choose_random_word()
-    game.play(word.upper())
+    else:
+        print('Essa opcao nao existe!')
